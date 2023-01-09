@@ -46,9 +46,13 @@ streamlit.header("contains:")
 streamlit.dataframe(my_data_rows)
 
 
-add_my_fruit = streamlit.text_input('What fruit would you like information about?')
-if not add_my_fruit:
-    streamlit.error("select fruit please")
-else:
-    streamlit.write('The user entered ', add_my_fruit)
-    my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+try:
+    add_my_fruit = streamlit.text_input('What fruit would you like information about?')
+
+    if not add_my_fruit:
+        streamlit.error("select fruit please")
+    else:
+        streamlit.write('The user entered ', add_my_fruit)
+        my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+except URLError as e:
+  streamlit.error()
