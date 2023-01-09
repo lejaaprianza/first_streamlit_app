@@ -53,5 +53,5 @@ if streamlit.button("add"):
         streamlit.error("select fruit pleasess")
     else:
         streamlit.write('The user entered ', add_my_fruit)
-        my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+        my_cur.execute("insert into fruit_load_list values ('"+add_my_fruit+"')")
 
